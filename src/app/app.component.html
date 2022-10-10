@@ -55,9 +55,34 @@
     <button (click)="onChange(item)">Change</button>
   </li>
 </ul> -->
+<div class="container-fluid">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Project Details</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <button class="btn btn-outline-success" type="submit" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Projects</button>&nbsp;&nbsp;
+        <button class="btn btn-outline-success" type="submit" data-bs-toggle="modal" data-bs-target="#exampleModall">View Projects</button>
+        <button class="btn btn-outline-success" type="submit" data-bs-toggle="modal" data-bs-target="#exampleModall">Change Project Description</button>
+      </div>
+    </div>
+  </nav>
+  </div>
 
 <h1>Projects</h1>
-<ul *ngFor="let item of projects ">
-<li><a (click)="getProducts()"> {{ item.name }} </a><p>{{desc}}</p></li>
+<!-- <button (click) = "changedesc()"> Change Description </button> -->
+<ul *ngFor="let item of projects">
+<li>Project-Id :-- {{ item.id }} <br> Project-Name :-- <a id ="aa" (click) = "getProducts(item)"> {{ item.name }}  </a> <br>Project-Description :-- {{item.description}} <br> Project-Age :-- {{item.age}} <br><br><br>
+</li>
 </ul>
 
+<!-- <ul >
+  <li>{{ item.id }} -- {{ item.name }} -- {{item.description}}</li>
+  </ul> -->
+<!-- <table>
+  <tr>
+    {{item.name}}
+  </tr>
+</table> -->

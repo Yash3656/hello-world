@@ -12,4 +12,14 @@ export class EmailService {
   getProjects():Observable<any>{
     return this.http.get('http://localhost:3001/users');
   }
+  updateProjects(item:any,desc:any):Observable<any>{
+    const shipmentUrl = `${'http://localhost:3001/users'}/${item.id}`;
+    return this.http.put<any>(shipmentUrl,{
+      
+      id:item.id,
+      name:item.name,
+      age:item.age,
+      description : desc
+    });
+}
 }
