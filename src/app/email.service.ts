@@ -10,16 +10,23 @@ export class EmailService {
   constructor(private http: HttpClient) { }
 
   getProjects():Observable<any>{
-    return this.http.get('http://localhost:3001/users');
+    return this.http.get('http://localhost:3001/projects');
   }
-  updateProjects(item:any,desc:any):Observable<any>{
-    const shipmentUrl = `${'http://localhost:3001/users'}/${item.id}`;
+  updateProjects(project:any):Observable<any>{
+    const shipmentUrl = `${'http://localhost:3001/projects'}/${project.id}`;
     return this.http.put<any>(shipmentUrl,{
       
-      id:item.id,
-      name:item.name,
-      age:item.age,
-      description : desc
+      id:project.id,
+      name:project.name,
+      age:project.age,
+      description : project.description
     });
 }
+
+
+
+addProject(project:any):Observable<any>{
+  return this.http.post<any>('http://localhost:3001/projects',project);
+}
+
 }

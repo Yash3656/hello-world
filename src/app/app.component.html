@@ -63,21 +63,21 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <button class="btn btn-outline-success" type="submit" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Projects</button>&nbsp;&nbsp;
-        <button class="btn btn-outline-success" type="submit" data-bs-toggle="modal" data-bs-target="#exampleModall">View Projects</button>
-        <button class="btn btn-outline-success" type="submit" data-bs-toggle="modal" data-bs-target="#exampleModall">Change Project Description</button>
+        <button class="btn btn-outline-success" type="submit" data-bs-toggle="modal" data-bs-target="#exampleModal" >Add Projects</button>&nbsp;&nbsp;
+        <button class="btn btn-outline-success" type="submit" data-bs-toggle="modal" data-bs-target="#exampleModall" (click)="viewproject()">View Projects</button>
+        <button class="btn btn-outline-success" type="submit" data-bs-toggle="modal" data-bs-target="#exampleModalll">Change Project Description</button>
       </div>
     </div>
   </nav>
   </div>
 
-<h1>Projects</h1>
+<!-- <h1>Projects</h1> -->
 <!-- <button (click) = "changedesc()"> Change Description </button> -->
-<ul *ngFor="let item of projects">
+<!-- <ul *ngFor="let item of projects">
 <li>Project-Id :-- {{ item.id }} <br> Project-Name :-- <a id ="aa" (click) = "getProducts(item)"> {{ item.name }}  </a> <br>Project-Description :-- {{item.description}} <br> Project-Age :-- {{item.age}} <br><br><br>
 </li>
-</ul>
-
+</ul> -->
+<h2>Hello Guys!! <br> <h3>Welcome to my Portal </h3></h2>
 <!-- <ul >
   <li>{{ item.id }} -- {{ item.name }} -- {{item.description}}</li>
   </ul> -->
@@ -86,3 +86,118 @@
     {{item.name}}
   </tr>
 </table> -->
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Project Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <form [formGroup]=empDetail>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Name</label>
+            <input type="text" formControlName="name" class="form-control" id="name" aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Id</label>
+            <input type="text" formControlName="id" class="form-control" id="id" aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Description</label>
+            <input type="text" formControlName="desc" class="form-control" id="desc" aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Age</label>
+            <input type="text" formControlName="age" class="form-control" id="age" aria-describedby="emailHelp">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" (click)="addproject()">Add Project</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade "  id="exampleModall" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="width:150%">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Project -List</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" style="width:100%;">
+
+          <table class="table">
+           <thead>
+             <tr>
+               <th scope="col">Project-Id</th>
+               <th scope="col">Name</th>
+               <th scope="col">Description</th>
+               <th scope="col">Age</th>
+             </tr>
+           </thead>
+           <tbody>
+             <tr *ngFor="let project of projects">
+               <td>{{project.id}}</td>
+               <td>{{project.name}}</td>
+               <td>{{project.description}}</td>
+               <td>{{project.age}}</td>
+             </tr>
+           </tbody>
+         </table>
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-primary" (click)="viewproject()">View Project</button> -->
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <footer id="footer"><b>All rights reserved 2019</b></footer> -->
+
+<div class="modal fade" id="exampleModalll" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Change Description</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]=empDetail>
+          <div class="mb-3">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Id</label>
+              <input type="text" formControlName="id" class="form-control" id="id" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Name</label>
+              <input type="text" formControlName="name" class="form-control" id="name" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Description</label>
+              <input type="text" formControlName="desc" class="form-control" id="desc" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Age</label>
+              <input type="text" formControlName="age" class="form-control" id="age" aria-describedby="emailHelp">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" (click)="changeproject(empDetail)">Change Project</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+          </form>
+        </div>
+  
+      </div>
+    </div>
+  </div>
